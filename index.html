@@ -3,39 +3,95 @@
 		<title>Demonstration of Paste Jacking</title>
 		<style>
 		.codearea {
-			background-color: #939799;
+			background-color: #CCC;
+			border-style: solid;
+			border: 2px solid black;
+			padding: 5px;
+			margin-left: 30%;
+			margin-right: 30%
 		}
 
 		img {
-		    max-width:30%;
-		    height:auto;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			max-width:40%;
+			height:auto;
+			text-align: center;
+		}
+
+		p {
+			text-align: center;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		.outer {
+		       outline: 2px solid #CCC;
+		       border: 1px solid #999;
+		       background-color: #999;
+		       background-image: url("https://image.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg");
+		       background-size: cover;
+		}
+
+		.container {
+			background-color: #ffffff;
+			margin-left: 15%;
+			margin-right: 15%;
+			margin-top: 2%; 
+			margin-bottom: 4%;
+			padding: 5px;
 		}
 
 		</style>
 	</head>
 	<body>
 
-	<h1>Should you copy-paste that code? Think carefully again.</h1>
+	<div class="outer">
+	<div class="container">
 
-	<p> Copy the text below and run it in your terminal for totally not evil things to happen. </p>
-	<p class="codearea">ipconfig /all</p>
-	<p>	Paste the above in a window CMD and observe a calculator magically appears. <br>
-		
-		You can see the actual content if you paste it in notepad first. <br>
-	</p>
-	<p class="codearea">
-	calc.exe<br>
-	cls<br>
-	ipconfig /all<br>
-	<br>
-	</p>
+		<h1>Should you copy-paste that code?<br>Think carefully again.</h1>
 
-	<p>This is what you will see when you scroll back to the top of your command prompt.</p>
-	<img src="./image/calculator.PNG"/>
+		<p> Copy the text below and run it in your terminal for totally non malicious things to happen. </p>
+		<div class="codearea">
+			<p>ipconfig /all</p>
+		</div>
+		<p>	Paste the above in a window CMD and observe a calculator magically appears. <br>
+			
+			You can see the actual content if you paste it in notepad first. <br>
+		</p>
 
-	<p>This is why I have trust issues copying code from unknown online sources...</p>
-	<p>This does not mean one should not copy code from places like stackoverflow. <br>
-	However, things can get interesting if that website has XSS vulnerability...</p>
+		<div class="codearea">
+			<p>
+			calc.exe<br>
+			cls<br>
+			ipconfig /all<br>
+			<br>
+			</p>
+		</div>
+
+		<p>This is what you will see when you scroll back to the top of your command prompt.</p>
+		<img src="./image/calculator.PNG"/>
+
+		<p>This is why I have trust issues copying code from unknown online sources...</p>
+		<p>This does not mean one should not copy code from places like stackoverflow. <br>
+		However, things can get interesting if that website has XSS vulnerability...</p>
+
+		<h1>How it happens?</h1>
+		<p>TLDR; This technique is known as Paste Jacking and it is not a new technique.<br>
+		This works because browsers have a feature that allow developers to automatically add content to a user's clipboard.
+		<br><br>
+
+		<h1>More Info can be found @</h1>
+		<p>
+			<a href="https://github.com/dxa4481/Pastejacking">https://github.com/dxa4481/Pastejacking<a><br>
+			<a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand">https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand</a>
+		</p>
+
+	</div>
+	</div>
 
 	<script>
 	    document.addEventListener('copy', function(e){
